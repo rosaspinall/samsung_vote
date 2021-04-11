@@ -70,7 +70,7 @@ if(isset($_POST['submit'])) {
 					<h4><?php echo $row['feature_name'] ?></h4>
 					<p class="vote-count"><?php echo $row['vote_count'] ?> votes</p>
 					<p><?php echo $row['feature_details'] ?></p>
-					<p class="submitted-by">Submitted by <?php echo $row['feature_submitter'] ?></p>		
+					<p class="submitted-by">Submitted by <?php echo $row['feature_submitter']?> at <?php echo $row['creation_time'] ?></p>		
 					<form action="" method="post">
 						<input type="hidden" name="voted_for" value="<?php echo $row['id'] ?>">
 						<input type="submit" name="vote" value="Vote for this feature!">
@@ -123,10 +123,6 @@ if(isset($_POST['submit'])) {
 		<?php echo print_r($result) ?>
 		
 		<?php echo $submitError ?>
-		
-		<p>Phone ID is: <?php echo $phoneid;?></p>
-		
-		<p>Phone name 2 is: <?php echo $phoneName2 ?></p>
 		
 
 		
