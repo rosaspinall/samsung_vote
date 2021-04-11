@@ -116,3 +116,33 @@ h3 {
   position: relative;
   top: -10px;
 }
+#choose-phone {
+  display: block;
+  width: 90%;
+  max-width: 744px;
+  margin: 0 auto;
+}
+#choose-phone .phone {
+  display: inline-block;
+  width: 47%;
+  overflow: hidden;
+  min-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  margin: 10px 1%;
+}
+#choose-phone .phone img {
+  display: inline-block;
+  width: 55%;
+}
+#choose-phone .phone p {
+  display: inline-block;
+  width: 41%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-left: 10px;
+}
