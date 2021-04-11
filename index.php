@@ -1,13 +1,13 @@
 <?php
 $conn = mysqli_connect("localhost","samsung_vote","m6MG6jyzqdXACr4S","samsung_vote");
 
+$phoneName = 'Samsung Galaxy Fold';
+
 // Check connection
 if ($conn -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
   exit();
 }
-
-$phoneName = 'Samsung Galaxy Fold';
 
 //Record votes
 if(isset($_POST['vote'])) {
@@ -16,8 +16,26 @@ if(isset($_POST['vote'])) {
 		Set `vote_count` = `vote_count` + 1
 		Where `id` = '$_POST[voted_for]';"; //Retrieve the ID of the item a vote was submitted for
 	mysqli_query($conn, $sql);
+}
+
+
+//Handle new submissions
+if(isset($_POST['submit'])) {
+	
+	$featureName = $_POST['feature-name'];
+	$featureDescription = $_POST['feature-description'];
+	$name = $_POST['submitter-name'];			
+	
+	$sql = "INSERT INTO features (phoneid, feature_name, feature_details, feature_submitter, vote_count) VALUES (1, '$featureName', '$featureDescription', '$name', 0);";
+	
+	if (mysqli_query($conn, $sql)) {
+		//
+	} else {
+	  $submitError = "Submit Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
 	
 }
+
 
 
 ?>
@@ -71,37 +89,27 @@ if(isset($_POST['vote'])) {
 	<div id="submit-feature">
 		<?php
 		if(isset($_POST['submit'])) {
-			
-			$featureName = $_POST['feature-name'];
-			$featureDescription = $_POST['feature-description'];
-			$name = $_POST['submitter-name'];			
-			
-			$sql = "INSERT INTO features (phoneid, feature_name, feature_details, feature_submitter, vote_count) VALUES (1, '$featureName', '$featureDescription', '$name', 0);";
-			
 			if (mysqli_query($conn, $sql)) {
 				echo "<p>Thanks for your submission!</p>";
 			} else {
 			  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 			}
-			
-			
-			
 		} else { ?>
-		<div id="submit-area:">
-			<h3>Want to submit a feature?</h3>
-			<p>Tell us your favourite feature about the <?php echo $phoneName ?> and let other Backstage users vote for it!</p>
-			<form action="" method="post">
-				<input type="hidden" name="phone-name" value ="<?php echo $phoneName ?>">
-				<label for="submitter-name">Your Name:</label>
-				<input type="text" id="submitter-name" name="submitter-name">
-				<label for="feature-name">Feature Title:</label>
-				<input type="text" id="feature-name" name="feature-name">
-				<label for="feature-description">Feature Description:</label>
-				<input type="text" id="feature-description" name="feature-description">
-				<input type="submit" name="submit" value="submit">
-			</form>
-		</div>
-		<?php } ?>
+			<div id="submit-area:">
+				<h3>Want to submit a feature?</h3>
+				<p>Tell us your favourite feature about the <?php echo $phoneName ?> and let other Backstage users vote for it!</p>
+				<form action="" method="post">
+					<input type="hidden" name="phone-name" value ="<?php echo $phoneName ?>">
+					<label for="submitter-name">Your Name:</label>
+					<input type="text" id="submitter-name" name="submitter-name">
+					<label for="feature-name">Feature Title:</label>
+					<input type="text" id="feature-name" name="feature-name">
+					<label for="feature-description">Feature Description:</label>
+					<input type="text" id="feature-description" name="feature-description">
+					<input type="submit" name="submit" value="submit">
+				</form>
+			</div>
+		<?php } //Close the else statement?> 
 	</div>
 
 
@@ -112,6 +120,8 @@ if(isset($_POST['vote'])) {
 		<?php echo print_r($_POST)?>
 		
 		<?php echo print_r($result) ?>
+		
+		<?php echo $submitError ?>
 		
 	</pre>
 </div>
