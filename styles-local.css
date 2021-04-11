@@ -1,0 +1,118 @@
+#debugging {
+  display: none;
+}
+* {
+  font-family: 'Roboto', sans-serif;
+  color: #242628;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+#page {
+  z-index: 1;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 20px;
+  border-left: 56px #eee solid;
+}
+h2 {
+  font-size: 40px;
+  background-color: transparent;
+  text-align: left;
+  height: auto;
+  border-top: none;
+}
+h3 {
+  color: #ced3d8;
+  font-size: 32px;
+  line-height: 1.5em;
+}
+#features-container {
+  display: block;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+#features-container .feature {
+  position: relative;
+}
+#features-container .feature .vote-count {
+  background-color: #f8f8f8;
+  border: 2px solid #f8f8f8;
+  padding: 10px;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 20px;
+  margin: 0px;
+}
+#features-container .feature p {
+  margin: 10px 0px;
+  width: 100%;
+}
+#features-container .feature p .time {
+  color: #878a8d;
+}
+#features-container .feature h4 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+#features-container .feature input {
+  color: #fff;
+  border: 0;
+  background: 90% 50% no-repeat #1ee1b0;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+}
+#features-container .feature input[type="submit"]:disabled {
+  background-color: #ddd;
+}
+#features-container .voted-true .vote-count:after {
+  content: "You Voted!";
+  display: block;
+  position: absolute;
+  width: 100px;
+  background-color: #fff;
+  top: 0;
+  left: -60px;
+  color: #1ee1b0;
+  border: 2px #1ee1b0 solid;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  transform: rotateY(0deg) rotate(-30deg);
+}
+#submit-area {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+#submit-area form input,
+#submit-area form textarea {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 5px;
+}
+#submit-area #submitter-name,
+#submit-area #feature-name {
+  width: 200px;
+}
+#submit-area form input[type=submit] {
+  background-color: #1ee1b0;
+  border: 2px solid #f8f8f8;
+  width: 100px;
+  color: #fff;
+  position: relative;
+  top: -10px;
+}

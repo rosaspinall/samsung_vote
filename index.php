@@ -1,18 +1,13 @@
 <?php
 require 'includes/header.php';
-
-$phoneName = 'Samsung Galaxy Fold';
-
-
 ?>
 
-<link rel=StyleSheet href="styles.css" title="Main">
 
 
 <body class="backstage2">
 
 	<div id=intro>
-		<h2 class="title">Welcome to Samsung Vote</h2>
+		<h2 id="page-title" class="title">Welcome to Samsung Vote</h2>
 		<h3>What is Samsung Vote?</h3>
 		<p>Samsung vote is where backstage users can submit and vote on their favourite features of each Samsung phone. Let's all work together to find out what the most popular and most sales-generating features of each phone are!</p>
 	</div>
@@ -57,4 +52,6 @@ $phoneName = 'Samsung Galaxy Fold';
 
 
 
-</body>
+<?php
+include 'includes/footer.php';
+?>
