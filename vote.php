@@ -111,11 +111,14 @@ if(isset($_POST['submit'])) {
 				<form action="" method="post">
 					<input type="hidden" name="phone-name" value ="<?php echo $phoneName ?>">
 					<label for="submitter-name">Your Name:</label><br>
-					<input type="text" id="submitter-name" name="submitter-name" maxlength="20" cols="20"><br>
+					<input type="text" id="submitter-name" name="submitter-name" maxlength="40" cols="20" autocomplete="off"
+><br>
 					<label for="feature-name">Feature Title:</label><br>
-					<input type="text" id="feature-name" name="feature-name" maxlength="20" cols="20"><br>
+					<input type="text" id="feature-name" name="feature-name" maxlength="40" cols="20" autocomplete="off"
+><br>
 					<label for="feature-description">Feature Description:</label>
-					<textarea name="feature-description" cols="40" rows="5" maxlength="1000" id="feature-description"></textarea>
+					<textarea name="feature-description" cols="40" rows="5" maxlength="1000" id="feature-description" autocomplete="off"
+></textarea>
 					<input type="submit" name="submit" value="Submit" onclick="setVoted()">
 				</form>
 			</div>
