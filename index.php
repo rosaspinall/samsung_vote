@@ -25,7 +25,10 @@ require 'includes/header.php';
 			if ($resultCheck > 0) {
 				while ($row = mysqli_fetch_assoc($result)) { ?>
 				<div class="phone">
-					<p><a href="/vote.php?phoneid=<?php echo $row['id'] ?>"><?php echo $row['phone_name'] ?></a></p>
+					<a href="/vote.php?phoneid=<?php echo $row['id'] ?>">
+						<img src="/images/<?php echo $row['image']?>">
+						<p><?php echo $row['phone_name'] ?></p>
+					</a>
 				
 				</div>
 			<?php }

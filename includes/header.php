@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost","samsung_vote","m6MG6jyzqdXACr4S","samsung_vote");
+$conn = mysqli_connect("aadkt207k28z92.cwfwsgl1puow.eu-west-2.rds.amazonaws.com:3306","dbuser","PASSWORD","samsung_vote");
 
 // Check connection
 if ($conn -> connect_errno) {
