@@ -2,16 +2,11 @@
 require 'includes/header.php';
 ?>
 
-
-
-<body class="backstage2">
-
 	<div id=intro>
 		<h2 id="page-title" class="title">Welcome to Samsung Vote</h2>
 		<h3>What is Samsung Vote?</h3>
 		<p>Samsung vote is where backstage users can submit and vote on their favourite features of each Samsung phone. Let's all work together to find out what the most popular and most sales-generating features of each phone are!</p>
 	</div>
-
 
 	<div id="choose-phone">
 		<h3>Choose a phone</h3>
@@ -29,31 +24,14 @@ require 'includes/header.php';
 						<img src="/images/<?php echo $row['image']?>">
 						<p><?php echo $row['phone_name'] ?></p>
 					</a>
-				
 				</div>
 			<?php }
 			} else { ?>
 				<div id="no-results">
-					<p>There aren't any phones to vote for features on yet, check back soon.'</p>
+					<p>There aren't any phones to vote for features on yet, check back soon.</p>
 				</div>
 			<?php } ?>
-			
-		
 	</div>
-
-
-<div id="debugging">
-	<pre>
-		<?php echo print_r($_POST)?>
-		
-		<?php echo print_r($result) ?>
-		
-		<?php echo $submitError ?>
-		
-	</pre>
-</div>
-
-
 
 <?php
 include 'includes/footer.php';
