@@ -63,11 +63,14 @@ if(isset($_POST['submit'])) {
 			if ($resultCheck > 0) {
 				while ($row = mysqli_fetch_assoc($result)) { ?>
 				<div class="feature <?php
-					if ($_POST[voted_for] == $row['id']) {
-					echo "voted-true";
-					} else {
-					echo "voted-false";
+					if (isset($_POST[voted_for])) {
+						if ($_POST[voted_for] == $row['id']) {
+						echo "voted-true";
+						} else {
+						echo "voted-false";
+						}
 					}
+
 				?>">
 					<h4><?php echo $row['feature_name'] ?></h4>
 					<p class="vote-count"><?php echo $row['vote_count'] ?> votes</p>
@@ -77,10 +80,12 @@ if(isset($_POST['submit'])) {
 						<input type="hidden" name="voted_for" value="<?php echo $row['id'] ?>">
 						<input type="submit" name="vote" <?php
 							//Disable the submit button if already voted
-							if ($_POST[voted_for] > 0) {
-								echo "value='You have already voted!' disabled";
-							} else {
-								echo "value='Vote for this feature!'";
+							if (isset($_POST[voted_for])) {
+								if ($_POST[voted_for] > 0) {
+									echo "value='You have already voted!' disabled";
+								} else {
+									echo "value='Vote for this feature!'";
+								}
 							}
 						?>>
 					</form>
@@ -122,7 +127,7 @@ if(isset($_POST['submit'])) {
 					<input type="submit" name="submit" value="Submit" onclick="setVoted()">
 				</form>
 			</div>
-		<?php } //Close the else statement?> 
+/		<?php } //Close the else statement?> 
 	</div>
 
 
